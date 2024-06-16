@@ -19,14 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://666efefd19c45aaead933133--brilliant-panda-fa3ade.netlify.app',
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://666efefd19c45aaead933133--brilliant-panda-fa3ade.netlify.app",
     methods: ["GET", "POST"]
   }
 });
