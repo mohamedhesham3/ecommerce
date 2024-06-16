@@ -20,7 +20,7 @@ const Products = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3000/");
+    const newSocket = io("https://ecommerce-2-1ulr.onrender.com/");
     newSocket.on('connection', () => {
       console.log('Socket connected');
     });
