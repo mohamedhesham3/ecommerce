@@ -18,23 +18,15 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const allowedOrigins = ['https://666efefd19c45aaead933133--brilliant-panda-fa3ade.netlify.app'];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: 'https://666efefd19c45aaead933133--brilliant-panda-fa3ade.netlify.app/',
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: allowedOrigins,
+    origin: "https://666efefd19c45aaead933133--brilliant-panda-fa3ade.netlify.app/",
     methods: ["GET", "POST"]
   }
 });
