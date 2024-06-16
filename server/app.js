@@ -19,14 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(cors({
-  origin: 'https://666efefd19c45aaead933133--brilliant-panda-fa3ade.netlify.app',
+  origin: '*',
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "https://666efefd19c45aaead933133--brilliant-panda-fa3ade.netlify.app",
+    origin: "*",
     methods: ["GET", "POST"]
   }
 });
