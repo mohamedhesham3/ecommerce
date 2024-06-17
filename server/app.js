@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 // Define the origin for CORS
 const allowedOrigins = [
-  'https://66703c58c9e9f323680f7cd7--astonishing-pegasus-b5b105.netlify.app',
+  'https://66703ed59fe41515e322438b--steady-centaur-9fdbd1.netlify.app',
 
 ];
 
