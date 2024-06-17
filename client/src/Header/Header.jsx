@@ -19,7 +19,11 @@ const Header = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
+<<<<<<< HEAD
     const newSocket = io("https://ecommerce-2-1ulr.onrender.com/");
+=======
+    const newSocket = io("https://ecommerce-2-k1zw.onrender.com/");
+>>>>>>> 7d53756 (Initial commit)
     
     newSocket.on('connect', () => {
       console.log('Socket connected');
