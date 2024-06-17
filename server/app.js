@@ -19,14 +19,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(cors({
-  origin: 'https://66702780fecbda0984f20d75--lucent-pony-7f04f3.netlify.app',
+  origin: 'https://ecommerce-s5sw-dj6rysdqy-mohamedds-projects.vercel.app/',
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "https://66702780fecbda0984f20d75--lucent-pony-7f04f3.netlify.app",
+    origin: "https://ecommerce-s5sw-dj6rysdqy-mohamedds-projects.vercel.app/",
     methods: ["GET", "POST"]
   }
 });
