@@ -53,6 +53,12 @@ const register = async (req, res) => {
       expiresIn: "1h",
     });
 
+ res.cookie('token', token, {
+      httpOnly: true, // Ensures the cookie is only accessible via HTTP(S)
+      secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only sent over HTTPS in production
+      sameSite: 'None', // Allows the cookie to be sent cross-origin in modern browsers
+    });
+    
     res.status(200).json({ message: "User registered successfully", token });
   } catch (error) {
     console.error("Error registering user:", error);
@@ -85,6 +91,13 @@ const login = async (req, res) => {
       expiresIn: "1h",
     });
 
+ res.cookie('token', token, {
+      httpOnly: true, // Ensures the cookie is only accessible via HTTP(S)
+      secure: process.env.NODE_ENV === 'production', // Ensures the cookie is only sent over HTTPS in production
+      sameSite: 'None', // Allows the cookie to be sent cross-origin in modern browsers
+    });
+
+    
     res.status(200).send({ message: "User loggedin successfully", token });
   } catch (error) {
     console.error("Error during login:", error);
