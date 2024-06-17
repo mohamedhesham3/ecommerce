@@ -18,34 +18,21 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Define the origin for CORS
-const allowedOrigins = [
-  'https://66703ed59fe41515e322438b--steady-centaur-9fdbd1.netlify.app',
 
-];
 
-// CORS setup for regular HTTP routes
 app.use(cors({
-  origin: function(origin, callback) {
-    // Check if the origin is in the allowedOrigins array, or if it's undefined (e.g., non-browser requests)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin:"https://667051d11c5ad13992580f09--rococo-biscochitos-89295e.netlify.app",
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: allowedOrigins,
+    origin: "https://667051d11c5ad13992580f09--rococo-biscochitos-89295e.netlify.app",
     methods: ["GET", "POST"]
   }
 });
 
-// Ensure you call saveProdcut(io) after io is configured
 saveProdcut(io);
 
 app.use("/", router);
