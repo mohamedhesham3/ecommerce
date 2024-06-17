@@ -20,14 +20,14 @@ app.use(cookieParser());
 
 // CORS setup for regular HTTP routes
 app.use(cors({
-  origin: 'https://ecommerce-s5sw-dj6rysdqy-mohamedds-projects.vercel.app',
+  origin: 'http://localhost:5173',
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: 'https://ecommerce-s5sw-dj6rysdqy-mohamedds-projects.vercel.app',
+    origin: 'http://localhost:5173',
     methods: ["GET", "POST"]
   }
 });
