@@ -18,19 +18,21 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// CORS setup for regular HTTP routes
 app.use(cors({
-  origin: 'https://ecommerce-s5sw-dj6rysdqy-mohamedds-projects.vercel.app/',
+  origin: 'https://ecommerce-s5sw-dj6rysdqy-mohamedds-projects.vercel.app',
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "https://ecommerce-s5sw-dj6rysdqy-mohamedds-projects.vercel.app/",
+    origin: 'https://ecommerce-s5sw-dj6rysdqy-mohamedds-projects.vercel.app',
     methods: ["GET", "POST"]
   }
 });
 
+// Ensure you call saveProdcut(io) after io is configured
 saveProdcut(io);
 
 app.use("/", router);
