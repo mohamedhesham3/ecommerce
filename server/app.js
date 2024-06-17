@@ -21,14 +21,14 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin:"https://667051d11c5ad13992580f09--rococo-biscochitos-89295e.netlify.app",
+  origin:"https://66705493e452e53da9becf2f--rococo-stroopwafel-15abc0.netlify.app",
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "https://667051d11c5ad13992580f09--rococo-biscochitos-89295e.netlify.app",
+    origin: "https://66705493e452e53da9becf2f--rococo-stroopwafel-15abc0.netlify.app",
     methods: ["GET", "POST"]
   }
 });
