@@ -20,8 +20,8 @@ app.use(cookieParser());
 
 // Define the origin for CORS
 const allowedOrigins = [
-  'https://ecommerce-s5sw-9cyclcdbe-mohamedds-projects.vercel.app',
-  'https://ecommerce-s5sw.vercel.app'
+  'https://66703c58c9e9f323680f7cd7--astonishing-pegasus-b5b105.netlify.app',
+
 ];
 
 // CORS setup for regular HTTP routes
