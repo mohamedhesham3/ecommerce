@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const { saveProdcut } = require('./controllers/UploadProduct');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 connection();
 
@@ -18,19 +18,34 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// Define the origin for CORS
+const allowedOrigins = [
+  'https://ecommerce-s5sw-9cyclcdbe-mohamedds-projects.vercel.app',
+  'https://ecommerce-s5sw.vercel.app'
+];
+
+// CORS setup for regular HTTP routes
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: function(origin, callback) {
+    // Check if the origin is in the allowedOrigins array, or if it's undefined (e.g., non-browser requests)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     methods: ["GET", "POST"]
   }
 });
 
+// Ensure you call saveProdcut(io) after io is configured
 saveProdcut(io);
 
 app.use("/", router);
