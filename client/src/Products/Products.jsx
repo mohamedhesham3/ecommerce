@@ -21,7 +21,7 @@ const Products = () => {
 
   useEffect(() => {
 
-    const newSocket = io("https://ecommerce-2-qzbh.onrender.com/");
+    const newSocket = io("https://ecommerce-2-apgx.onrender.com/");
 
     newSocket.on('connection', () => {
       console.log('Socket connected');

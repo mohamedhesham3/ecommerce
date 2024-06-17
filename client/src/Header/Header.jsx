@@ -19,7 +19,7 @@ const Header = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("https://ecommerce-2-qzbh.onrender.com/");
+    const newSocket = io("https://ecommerce-2-apgx.onrender.com/");
 
     
     newSocket.on('connect', () => {
