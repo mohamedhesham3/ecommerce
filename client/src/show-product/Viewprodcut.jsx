@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import api from '../API/Api';
 
 const ViewProduct = () => {
-  const [productData, setProductData] = useState(null); // Initialize as null
+  const [productData, setProductData] = useState(null); 
   const { productID } = useParams();
 
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/viewprodcut/${productID}`);
+        const res = await api.get(`/viewprodcut/${productID}`);
         const data = res.data;
-        setProductData(data); // Set data directly, assuming it's a single object
+        setProductData(data); 
       } catch (error) {
         console.log(error);
       }

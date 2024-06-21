@@ -46,7 +46,6 @@ const Header = () => {
 
   useEffect(() => {
     const token = Cookies.get("token");
-    console.log("Current token:", token);
 
     if (!token) {
       console.error("Token not found in cookies.");
@@ -55,7 +54,6 @@ const Header = () => {
 
     try {
       const decoded = jwtDecode(token);
-      console.log("Decoded token:", decoded);
 
       if (decoded.id) {
         setUserID(decoded.id);
