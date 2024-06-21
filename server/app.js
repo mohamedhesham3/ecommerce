@@ -21,14 +21,14 @@ app.use(cookieParser());
 
 
 app.use(cors({
-  origin:"https://66705493e452e53da9becf2f--rococo-stroopwafel-15abc0.netlify.app",
+  origin:"https://ecommerce-slub-es9l9rz3n-mohamedds-projects.vercel.app",
   credentials: true,
 }));
 
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "https://66705493e452e53da9becf2f--rococo-stroopwafel-15abc0.netlify.app",
+    origin: "https://ecommerce-slub-es9l9rz3n-mohamedds-projects.vercel.app",
     methods: ["GET", "POST"]
   }
 });
