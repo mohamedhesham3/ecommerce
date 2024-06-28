@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAtom } from "jotai";
 import { productName, productID } from "../Store/Store";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import "./Products.css";
 import io from 'socket.io-client';
 
